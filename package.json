@@ -7,7 +7,7 @@
   "author": "tdimnet <thomas.dimnet@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^3.1.9"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -15,7 +15,7 @@
     "idx": "^2.5.6"
   },
   "scripts": {
-    "dev": "node_modules/.bin/nodemon app/index.js",
+    "dev": "nodemon app/index.js",
     "start": "node app/index.js"
   }
 }
