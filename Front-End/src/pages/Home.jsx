@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 
 import icons from "../assets/icons";
-
 import mockData from "../utils/mockData";
 import DataService from "../utils/dataService";
 
@@ -12,42 +11,34 @@ import CustomLineChart from "../components/CustomLineChart";
 import CustomRadarChart from "../components/CustomRadarChart";
 import CustomRadialBarChart from "../components/CustomPieChart";
 
-
 import "../styles/HomeStyles.scss";
 
-
-// Option pour utiliser les données mockées.
 const useMockData = false;
 
-/**
- * The Home component is the main component of the application.
- * It manages user data, activity, average sessions and performance
- */
-
-// Le composant Home est le composant principal de l'application.
-//  il gère les données de l'utilisateur, l'activité, les sessions en moyenne et la performance.
-
 const Home = () => {
-  // Déclaration des états
   const [userData, setUserData] = useState(null);
   const [userActivity, setUserActivity] = useState(null);
   const [userAverageSessions, setUserAverageSessions] = useState(null);
   const [userPerformance, setUserPerformance] = useState(null);
+  const [invalidUserId, setInvalidUserId] = useState(false);
 
   const { id } = useParams();
   const userId = Number(id);
-  /**
-   * This function fetches user data based on the id.
-   * If useMock is true, it will use mocked data. Otherwise, it will fetch the real data.
-   * @param {number} id - The user's ID.
-   * @param {boolean} useMock - Whether to use mocked data or not.
-   */
+
+  // Vérification si userId est un nombre valide
+  useEffect(() => {
+    if (isNaN(userId) || userId <= 0) {
+      setInvalidUserId(true); // Si id n'est pas valide, on redirige vers 404
+    } else {
+      fetchData(userId, useMockData);
+    }
+  }, [userId]);
 
   const fetchData = async (id, useMock) => {
     try {
       useMock
         ? console.log("Je suis dans les données Mock")
-        : console.log("Je récuperer les datas dans l API");
+        : console.log("Je récupère les datas dans l'API");
 
       const resultUserData = useMock
         ? mockData.USER_MAIN_DATA.find((data) => data.data.id === id)
@@ -62,15 +53,6 @@ const Home = () => {
         ? mockData.USER_PERFORMANCE.find((data) => data.data.userId === id)
         : await DataService.getUserPerformance(id);
 
-      setUserData(useMock ? resultUserData : resultUserData.data);
-      setUserActivity(useMock ? resultUserActivity : resultUserActivity.data);
-      setUserAverageSessions(
-        useMock ? resultUserAverageSessions : resultUserAverageSessions.data
-      );
-      setUserPerformance(
-        useMock ? resultUserPerformance : resultUserPerformance.data
-      );
-
       if (
         !resultUserData ||
         !resultUserActivity ||
@@ -79,37 +61,36 @@ const Home = () => {
       ) {
         throw new Error("Invalid user data");
       }
+
+      setUserData(useMock ? resultUserData : resultUserData.data);
+      setUserActivity(useMock ? resultUserActivity : resultUserActivity.data);
+      setUserAverageSessions(
+        useMock ? resultUserAverageSessions : resultUserAverageSessions.data
+      );
+      setUserPerformance(
+        useMock ? resultUserPerformance : resultUserPerformance.data
+      );
     } catch (error) {
       console.error(
         "Une erreur s'est produite lors de la récupération des données : ",
         error
       );
-      setInvalidUserId(true);
+      setInvalidUserId(true); // Si une erreur se produit, on marque l'id comme invalide
     }
   };
-
-  const [invalidUserId, setInvalidUserId] = useState(false);
-
-  // Effet pour récupérer les données lors du montage du composant
-  useEffect(() => {
-    fetchData(userId, useMockData);
-  }, [userId]); // Mettre à jour l'effet pour qu'il dépende de userId
-  console.log(userId);
 
   if (invalidUserId) {
     return <Navigate to="/404" />;
   }
 
   // Si les données ne sont pas encore chargées, afficher "Loading..."
-  if (!userData || !userActivity || !userAverageSessions) {
+  if (!userData || !userActivity || !userAverageSessions || !userPerformance) {
     return <div>Loading...</div>;
   }
 
   // Récupération des données clés
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
     userData.data.keyData;
-
-  // Rendu du composant
 
   return (
     <div className="homeContainer">

@@ -3,9 +3,9 @@
 @import "../scss/global";      // Contient les styles généraux (reset, typographie, etc.)
 
 // Import des composants
-@import "../../components/NavBar.js";
-@import "../../components/SideBar/SideBar.scss";
-@import "../../components/Nutritional/Nutritional.scss";
+@import "../../styles/NavBar.scss";
+@import "../../styles/SideBar.scss";
+@import "../../styles/Nutritional.scss";
 
 // Import des pages
-@import "../../views/Home/Home.scss";
+@import "../../styles/HomeStyles.scss";
