@@ -1,0 +1,17 @@
+/*|---------------| Réinitialisation et styles globaux|---------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0 auto;
+    font-family: "Medium";  // Utilisation de la police Medium définie dans config.scss
+  }
+  
+  // Vous pouvez réactiver la ligne suivante si vous avez une largeur minimale pour la page
+  // min-width: $page-min-width;
+  

@@ -1,0 +1,57 @@
+@import "../assets/scss/config";
+
+.CustomBar {
+  
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  h2 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+  }
+
+  .legend {
+    margin: 50px;
+  }
+
+  .custom-tooltip {
+    min-width: 45px;
+    height: 63px;
+    color: #ffffff;
+    background-color: #e60000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+
+    p {
+    
+      text-align: center;
+      text-align: justify;
+      font-size: 7px;
+      padding: 7px;
+    }
+  }
+}
+.chart-container {
+  @media #{$BREAKPOINT-DESK} {
+    width:  auto;
+    height: auto;
+  }
+  width: 100%;
+  max-width: 835px;
+  max-height: 320px;
+
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.rechart-surface {
+  width: 100%;
+  height: auto;
+}

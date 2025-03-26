@@ -1,0 +1,11 @@
+// Imports de configuration et variables
+@import "../scss/config";      // Contient les polices, les couleurs, et les breakpoints
+@import "../scss/global";      // Contient les styles généraux (reset, typographie, etc.)
+
+// Import des composants
+@import "../../components/NavBar.js";
+@import "../../components/SideBar/SideBar.scss";
+@import "../../components/Nutritional/Nutritional.scss";
+
+// Import des pages
+@import "../../views/Home/Home.scss";
