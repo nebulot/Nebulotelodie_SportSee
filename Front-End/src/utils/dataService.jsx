@@ -13,7 +13,7 @@ const API_URL = "http://localhost:3000/user";
 class DataService {
   /**
    * Fetch user data for a given user id
-   * @param {number} userId - The id of the user
+   * @param {number|string} userId - The id of the user
    * @returns {Promise} Axios promise with user data
    */
   getUserData(userId) {
@@ -22,7 +22,7 @@ class DataService {
 
   /**
    * Fetch user activity for a given user id
-   * @param {number} userId - The id of the user
+   * @param {number|string} userId - The id of the user
    * @returns {Promise} Axios promise with user activity data
    */
   getUserActivity(userId) {
@@ -31,7 +31,7 @@ class DataService {
 
   /**
    * Fetch average session data for a given user id
-   * @param {number} userId - The id of the user
+   * @param {number|string} userId - The id of the user
    * @returns {Promise} Axios promise with average session data
    */
   getUserAverageSessions(userId) {
@@ -40,7 +40,7 @@ class DataService {
 
   /**
    * Fetch performance data for a given user id
-   * @param {number} userId - The id of the user
+   * @param {number|string} userId - The id of the user
    * @returns {Promise} Axios promise with user performance data
    */
   getUserPerformance(userId) {
