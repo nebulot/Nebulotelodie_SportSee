@@ -5,7 +5,7 @@ import { Context } from '../context'
 
 import logo from '../assets/logoTrend.svg'
 
-import '../styles/Header.scss'  // ✅ Correct si Header.scss est dans /styles/
+import '../styles/Header.scss'  
 
 
 /**
