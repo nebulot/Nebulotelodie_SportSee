@@ -15,11 +15,10 @@ import '../styles/HomeStyles.scss'
  * @returns { React.Component } A React component
  */
 function Home() {
-  console.log("Home component is rendering");
+  
 	document.title = 'Accueil - SportSee'
 	const { userToggle, setUserToggle } = useContext(Context)
-  console.log("Context values:", { userToggle, setUserToggle })
-
+ 
 	return (
 		<section className="home">
 			<div className="user-switch-wrapper">
@@ -36,6 +35,11 @@ function Home() {
 			<ComingSoon />
 		</section>
 	)
+  
 }
+
+console.log("Home component styles:", document.querySelector(".home")?.style);
+console.log("ToggleButton styles:", document.querySelector("#userLink")?.style);
+console.log("ComingSoon styles:", document.querySelector(".coming-soon")?.style);
 
 export default Home

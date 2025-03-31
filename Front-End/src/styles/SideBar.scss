@@ -18,14 +18,14 @@
 
 .copyright {
 	position: absolute;
-	bottom: 8rem;
+	bottom: 4rem;
 	left: -8%;
 	width: max-content;
 	margin: 0;
 	transform: rotate(-90deg);
 	color: #ffffff;
 	font-family: 'Roboto';
-	font-size: 0.75rem;
+	font-size: 0.7rem;
 	font-weight: 500;
 }
 
@@ -36,8 +36,5 @@
 	border: none;
 	border-radius: 6px;
 	background-color: #ffffff;
-	&-logo {
-		width: 2rem;
-		height: 2rem;
-	}
+	
 }

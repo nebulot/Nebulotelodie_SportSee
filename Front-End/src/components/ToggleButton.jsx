@@ -25,6 +25,8 @@ const ToggleSwitch = ({
 		e.preventDefault()
 		onChange(!checked)
 	}
+	console.log("ToggleButton component is rendering");
+
 
 	return (
 		<div className={'toggle-switch' + (small ? ' small-switch' : '')}>
@@ -103,4 +105,6 @@ ToggleSwitch.defaultProps = {
 	optionLabels: ['Yes', 'No'],
 }
 
+
 export default ToggleSwitch
+
