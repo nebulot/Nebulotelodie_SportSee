@@ -1,81 +1,20 @@
-@import "../assets/scss/config";
-
-
-.homeContainer {
-  @media #{$BREAKPOINT-DESK} {
-    margin-left: 130px;
-  }
-  margin-left: 226px;
-  width: 100vh;
-  h1 {
-    @media #{$BREAKPOINT-DESK} {
-      margin: 5px;
-      padding: 5px;
-    }
-    margin: 10px;
-    padding: 10px;
-
-    font-size: 48px;
-    font-family: "bold";
-    span {
-      color: #ff0101;
-    }
-  }
-  h2 {
-    padding: 10px;
-    font-size: 18px;
-    font-family: "medium";
-  }
-  .ChartContainer {
-    max-width: 835px;
-    max-height: 320px;
-    background-color: #fbfbfb;
-  }
+/* ---------------------------------------- */
+/* ==                HOME                 */
+/*---------------------------------------- */
+.home {
+	text-align: center;
 }
 
-.containerNutritional {
-  @media #{$BREAKPOINT-DESK} {
-    flex-direction: row;
-  }
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.sectionContainer {
-  @media #{$BREAKPOINT-DESK} {
-  }
-  display: flex;
-  flex-direction: column;
-  left: 226px;
-  justify-content: space-between;
-  margin-right: 20px;
-}
-
-.LineContainer {
-  background-color: #ff0000;
-
-  border-radius: 5px;
-}
-.customContainer {
-  @media #{$BREAKPOINT-DESK} {
-    flex-direction: column;
-    width: auto;
-  }
-  display: flex;
-
-  margin: 10px;
-  padding: 10px;
-}
-
-.containerChardCustom {
-  @media #{$BREAKPOINT-DESK} {
-    margin-top: 5px;
-    margin: 10px;
-    gap: 10px;
-  }
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
+.user-switch {
+	margin-right: 1rem;
+	font-size: 2rem;
+	font-weight: 500;
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	span {
+		color: #ff0101;
+	}
 }

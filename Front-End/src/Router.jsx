@@ -1,13 +1,13 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header'
-import Sidebar from './components/Sidebar'
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
-import Home from './pages/Home'
-import Profil from './pages/Profil'
-import Settings from './pages/Settings'
-import Community from './pages/Community'
+import Home from './pages/Home';
+import Profil from './pages/Profil';
+import Settings from './pages/Settings';
+import Community from './pages/Community';
 
 /**
  * Router to render the Header, the Sidebar and the 4 pages of the application
@@ -17,9 +17,10 @@ import Community from './pages/Community'
  * @returns { React.Component } A React component
  */
 function Router() {
+	console.log("Router component is rendering"); 
 	return (
 		<React.StrictMode>
-			<BrowserRouter basename="/SportSee">
+			<BrowserRouter >
 				<Header />
 				<Sidebar />
 				<Routes>

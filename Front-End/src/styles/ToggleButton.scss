@@ -1,0 +1,98 @@
+@import './variables.scss';
+
+/* ---------------------------------------- */
+/* ==            TOGGLE BUTTON            */
+/*---------------------------------------- */
+$label-color: #bbb;
+$disabled-color: #ddd;
+$toggle-color: #2f855a;
+$white: #fff;
+$focus-color: #ff0;
+
+.toggle-switch {
+	position: relative;
+	width: 4.6875rem;
+	text-align: left;
+	&-checkbox {
+		display: none;
+	}
+	&-label {
+		display: block;
+		overflow: hidden;
+		border: 0 solid $label-color;
+		border-radius: 1.25rem;
+		cursor: pointer;
+	}
+	&-inner {
+		display: block;
+		width: 200%;
+		margin-left: -100%;
+		transition: margin 0.3s ease-in 0s;
+		&:before,
+		&:after {
+			box-sizing: border-box;
+			width: 50%;
+
+			float: left;
+
+			font-weight: bold;
+			line-height: 2.125rem;
+		}
+		&:before {
+			padding-left: 0.625rem;
+			background-color: $toggle-color;
+			color: $white;
+			content: attr(data-yes);
+		}
+	}
+	&-disabled {
+		background-color: $disabled-color;
+		cursor: not-allowed;
+		&:before {
+			background-color: $disabled-color;
+			cursor: not-allowed;
+		}
+	}
+	&-inner:after {
+		padding-right: 0.625rem;
+		background-color: $label-color;
+		color: $white;
+		text-align: right;
+		content: attr(data-no);
+	}
+	&-switch {
+		position: absolute;
+		top: 0;
+		right: 2.5rem;
+		bottom: 0;
+		width: 1.5rem;
+		margin: 0.3125rem;
+		border-radius: 1.25rem;
+		background: $white;
+		transition: all 0.3s ease-in 0s;
+	}
+	&-checkbox:checked + &-label {
+		.toggle-switch-inner {
+			margin-left: 0;
+		}
+		.toggle-switch-switch {
+			right: 0rem;
+		}
+	}
+	&.small-switch {
+		width: 2.5rem;
+		.toggle-switch-inner {
+			&:after,
+			&:before {
+				height: 1.25rem;
+				line-height: 1.25rem;
+				content: '';
+			}
+		}
+		.toggle-switch-switch {
+			right: 1.25rem;
+			width: 1rem;
+			margin: 0.125rem;
+		}
+	}
+}

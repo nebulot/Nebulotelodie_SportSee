@@ -1,50 +1,43 @@
-@import "../assets/scss/config";
+/* ---------------------------------------- */
+/* ==             SIDEBAR              */
+/*---------------------------------------- */
+.sidebar {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 7.3125rem;
+	height: 100%;
+	overflow: hidden;
+	background: #020203;
+	text-align: center;
+	&-button-wrapper {
+		margin: 0;
+	}
+}
 
+.copyright {
+	position: absolute;
+	bottom: 8rem;
+	left: -8%;
+	width: max-content;
+	margin: 0;
+	transform: rotate(-90deg);
+	color: #ffffff;
+	font-family: 'Roboto';
+	font-size: 0.75rem;
+	font-weight: 500;
+}
 
-.sideBarContainer {
-  position: absolute;
- height: calc(100vh - 80px);
-  // height: 100vh;
-  max-width: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #020203;
-
-  .LogoContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
-  img {
-    margin-bottom: 20px;
-  }
-
-  .spacer {
-    flex-grow: 1;
-  }
-
-  .copyright {
-    position: relative;
-    text-align: center;
-    color: #ffffff;
-    font-family: "medium";
-    font-size: 12px;
-    transform: rotate(270deg);
-    bottom: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: auto;
-    padding: 0;
-
-    p {
-      white-space: nowrap;
-    }
-  }
+.sidebar-button {
+	width: 4rem;
+	height: 4rem;
+	margin-bottom: 1.25rem;
+	border: none;
+	border-radius: 6px;
+	background-color: #ffffff;
+	&-logo {
+		width: 2rem;
+		height: 2rem;
+	}
 }
