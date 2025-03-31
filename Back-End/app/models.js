@@ -7,40 +7,32 @@ const {
 
 /**
  * @description Retrieve the main user info (first name, last name, today score)
- * @param {number|string} id
+ * @param {number} id
  */
-const getUserById = (id) => {
-  id = Number(id); // Assure-toi que l'ID est bien un nombre
-  return USER_MAIN_DATA.find((user) => user.id === id);
-};
+const getUserById = (id) =>
+  USER_MAIN_DATA.filter((user) => user.id === id).shift();
 
 /**
- * @param {number|string} id
+ * @param {number} id
  */
-const getUserActivityById = (id) => {
-  id = Number(id);
-  return USER_ACTIVITY.find((userActivity) => userActivity.userId === id);
-};
+const getUserActivityById = (id) =>
+  USER_ACTIVITY.filter((userActivity) => userActivity.userId === id).shift();
 
 /**
- * @param {number|string} id
+ * @param {number} id
  */
-const getUserAverageSession = (id) => {
-  id = Number(id);
-  return USER_AVERAGE_SESSIONS.find(
+const getUserAverageSession = (id) =>
+  USER_AVERAGE_SESSIONS.filter(
     (userActivity) => userActivity.userId === id
-  );
-};
+  ).shift();
 
 /**
- * @param {number|string} id
+ * @param {number} id
  */
-const getUserPerformance = (id) => {
-  id = Number(id);
-  return USER_PERFORMANCE.find(
+const getUserPerformance = (id) =>
+  USER_PERFORMANCE.filter(
     (userPerformance) => userPerformance.userId === id
-  );
-};
+  ).shift();
 
 module.exports = {
   getUserById,

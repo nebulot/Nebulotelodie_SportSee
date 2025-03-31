@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom'
 import { UserDataFetch } from '../utils/UserData'
 
-import Card from '../../components/Card'
-import ChartsCard from '../../components/ChartsCard'
-import ChartActivity from '../../components/ChartActivity'
-import ChartAverageSessions from '../../components/ChartAverageSessions'
-import ChartGoal from '../../components/ChartGoal'
-import ChartPerformance from '../../components/ChartPerformance'
+import Card from '../components/Card'
+import ChartsCard from '../components/ChartsCard'
+import ChartActivity from '../components/ChartActivity'
+import ChartAverageSessions from '../components/ChartAverageSessions'
+import ChartGoal from '../components/ChartGoal'
+import ChartPerformance from '../components/ChartPerformance'
 
 import icons from '../assets/icons' 
 
@@ -22,30 +22,36 @@ import '../styles/ProfilStyles.scss'
 function Profil() {
 	document.title = 'Profil - SportSee'
 
+
 	const { userId } = useParams()
 
 	/* Fetch the data from API or mocked data */
 	const user = UserDataFetch(
-		`https://sportsee.abcoding.fr/user/${userId}`,
+		`http://localhost:3000/user/${userId}`,
 		userId,
 		window.location.origin + '/SportSee/mocked-data/user-main-data.json'
 	)
 	const activity = UserDataFetch(
-		`https://sportsee.abcoding.fr/user/${userId}/activity`,
+		`http://localhost:3000/user/${userId}/activity`,
 		userId,
 		window.location.origin + '/SportSee/mocked-data/user-activity.json'
 	)
 	const averageSessions = UserDataFetch(
-		`https://sportsee.abcoding.fr/user/${userId}/average-sessions`,
+		`http://localhost:3000/user/${userId}/average-sessions`,
 		userId,
 		window.location.origin +
 			'/SportSee/mocked-data/user-average-sessions.json'
 	)
 	const performance = UserDataFetch(
-		`https://sportsee.abcoding.fr/user/${userId}/performance`,
+		`http://localhost:3000/user/${userId}/performance`,
 		userId,
 		window.location.origin + '/SportSee/mocked-data/user-performance.json'
 	)
+
+  console.log("user", user);
+console.log("activity", activity);
+console.log("averageSessions", averageSessions);
+console.log("performance", performance);
 
 	/**
 	 * Function to return on dataObject with the data from the API if available, or the mocked data if not.
