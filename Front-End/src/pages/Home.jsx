@@ -23,125 +23,87 @@ const Home = () => {
   const [invalidUserId, setInvalidUserId] = useState(false);
 
   const { id } = useParams();
-  const userId = Number(id);
-
-  // Vérification si userId est un nombre valide
+  
   useEffect(() => {
-    if (isNaN(userId) || userId <= 0) {
-      setInvalidUserId(true); // Si id n'est pas valide, on redirige vers 404
+    const parsedId = Number(id);
+    if (isNaN(parsedId) || ![12, 18].includes(parsedId)) {
+      setInvalidUserId(true);
     } else {
-      fetchData(userId, useMockData);
+      setInvalidUserId(false);
+      fetchData(parsedId, useMockData);
     }
-  }, [userId]);
+  }, [id]);
 
-  const fetchData = async (id, useMock) => {
+  const fetchData = async (userId, useMock) => {
     try {
-      useMock
-        ? console.log("Je suis dans les données Mock")
-        : console.log("Je récupère les datas dans l'API");
+      console.log(useMock ? "Utilisation des données Mock" : "Récupération des données depuis l'API");
 
       const resultUserData = useMock
-        ? mockData.USER_MAIN_DATA.find((data) => data.data.id === id)
-        : await DataService.getUserData(id);
+        ? mockData.USER_MAIN_DATA.find((data) => data.id === userId)
+        : await DataService.getUserData(userId);
       const resultUserActivity = useMock
-        ? mockData.USER_ACTIVITY.find((data) => data.data.userId === id)
-        : await DataService.getUserActivity(id);
+        ? mockData.USER_ACTIVITY.find((data) => data.userId === userId)
+        : await DataService.getUserActivity(userId);
       const resultUserAverageSessions = useMock
-        ? mockData.USER_AVERAGE_SESSIONS.find((data) => data.data.userId === id)
-        : await DataService.getUserAverageSessions(id);
+        ? mockData.USER_AVERAGE_SESSIONS.find((data) => data.userId === userId)
+        : await DataService.getUserAverageSessions(userId);
       const resultUserPerformance = useMock
-        ? mockData.USER_PERFORMANCE.find((data) => data.data.userId === id)
-        : await DataService.getUserPerformance(id);
+        ? mockData.USER_PERFORMANCE.find((data) => data.userId === userId)
+        : await DataService.getUserPerformance(userId);
 
-      if (
-        !resultUserData ||
-        !resultUserActivity ||
-        !resultUserAverageSessions ||
-        !resultUserPerformance
-      ) {
-        throw new Error("Invalid user data");
+      if (!resultUserData || !resultUserActivity || !resultUserAverageSessions || !resultUserPerformance) {
+        throw new Error("Données utilisateur invalides");
       }
 
-      setUserData(useMock ? resultUserData : resultUserData.data);
-      setUserActivity(useMock ? resultUserActivity : resultUserActivity.data);
-      setUserAverageSessions(
-        useMock ? resultUserAverageSessions : resultUserAverageSessions.data
-      );
-      setUserPerformance(
-        useMock ? resultUserPerformance : resultUserPerformance.data
-      );
+      setUserData(resultUserData);
+      setUserActivity(resultUserActivity);
+      setUserAverageSessions(resultUserAverageSessions);
+      setUserPerformance(resultUserPerformance);
     } catch (error) {
-      console.error(
-        "Une erreur s'est produite lors de la récupération des données : ",
-        error
-      );
-      setInvalidUserId(true); // Si une erreur se produit, on marque l'id comme invalide
+      console.error("Erreur lors de la récupération des données :", error);
+      setInvalidUserId(true);
     }
   };
 
   if (invalidUserId) {
-    return <Navigate to="/404" />;
+    return <Navigate to="/404" replace />;
   }
 
-  // Si les données ne sont pas encore chargées, afficher "Loading..."
   if (!userData || !userActivity || !userAverageSessions || !userPerformance) {
-    return <div>Loading...</div>;
+    return <div>Chargement...</div>;
   }
 
-  // Récupération des données clés
-  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
-    userData.data.keyData;
+  const { userInfos, keyData, todayScore, score } = userData || {};
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = keyData || {};
 
   return (
     <div className="homeContainer">
       <h1>
-        Bonjour <span>{userData.data.userInfos.firstName}</span>
+        Bonjour <span>{userInfos?.firstName || "Utilisateur"}</span>
       </h1>
       <h2>Félicitations ! Vous avez explosé vos objectifs hier 👏</h2>
       <div className="customContainer">
         <div className="sectionContainer">
           <div className="ChartContainer">
-            <CustomBarChart data={userActivity.data} />
+            <CustomBarChart data={userActivity} />
           </div>
           <div className="containerChardCustom">
             <div className="LineContainer items">
-              <CustomLineChart data={userAverageSessions.data} />
+              <CustomLineChart data={userAverageSessions} />
             </div>
             <div className="RadarContainer items">
-              <CustomRadarChart data={userPerformance.data} />
+              <CustomRadarChart data={userPerformance} />
             </div>
             <div className="CustomRadialBarChart items">
-              <CustomRadialBarChart
-                data={userData.data.todayScore || userData.data.score}
-              />
+              <CustomRadialBarChart data={todayScore || score} />
             </div>
           </div>
         </div>
         <div className="containerNutritional">
-          <Nutritional
-            logo={icons.calories}
-            title="Calories"
-            value={calorieCount}
-            unit="kcal"
-          />
-          <Nutritional
-            logo={icons.proteins}
-            title="Protéines"
-            value={proteinCount}
-            unit="g"
-          />
-          <Nutritional
-            logo={icons.glucides}
-            title="Glucides"
-            value={carbohydrateCount}
-            unit="g"
-          />
-          <Nutritional
-            logo={icons.lipides}
-            title="Lipides"
-            value={lipidCount}
-            unit="g"
-          />
+          <Nutritional logo={icons.calories} title="Calories" value={calorieCount} unit="kcal" />
+          <Nutritional logo={icons.proteins} title="Protéines" value={proteinCount} unit="g" />
+          <Nutritional logo={icons.glucides} title="Glucides" value={carbohydrateCount} unit="g" />
+          <Nutritional logo={icons.lipides} title="Lipides" value={lipidCount} unit="g" />
         </div>
       </div>
     </div>

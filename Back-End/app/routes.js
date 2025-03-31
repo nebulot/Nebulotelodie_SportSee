@@ -13,9 +13,13 @@ const {
 const { handleNoUserData } = require("./middleware");
 
 router.get("/user/:id", (req, res) => {
-  const userId = idx(req, (_) => _.params.id);
+  const userId = req.params.id;
+  console.log("🔎 ID reçu :", userId); // Debugging
   const userData = getUserById(Number(userId));
-
+  if (!userData) {
+    console.log("⚠️ Aucun utilisateur trouvé avec cet ID :", userId);
+    return res.status(404).json({ message: "Utilisateur non trouvé" });
+  }
   return handleNoUserData(res, userData);
 });
 

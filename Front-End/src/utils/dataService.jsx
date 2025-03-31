@@ -11,14 +11,27 @@ const API_URL = "http://localhost:3000/user";
  * @class
  */
 class DataService {
-  /**
-   * Fetch user data for a given user id
-   * @param {number|string} userId - The id of the user
-   * @returns {Promise} Axios promise with user data
-   */
-  getUserData(userId) {
-    return axios.get(`${API_URL}/${userId}`);
+
+/**
+ * Fetch user data for a given user id
+ * @param {number|string} userId - The id of the user
+ * @returns {Promise} Axios promise with user data
+ */
+async getUserData(userId) {
+  try {
+    const response = await axios.get(`${API_URL}/${userId}`);
+    return response.data; // Retourner directement les données
+  } catch (error) {
+    if (error.response && error.response.status === 404) {
+      // Gestion du 404
+      console.error(`Utilisateur avec ID ${userId} non trouvé.`);
+    } else {
+      // Autres erreurs
+      console.error('Erreur lors de la récupération des données utilisateur', error);
+    }
+    throw error; // Relancer l'erreur pour la gérer dans le composant appelant
   }
+}
 
   /**
    * Fetch user activity for a given user id

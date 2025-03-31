@@ -1,45 +1,50 @@
 const {
-    USER_MAIN_DATA,
-    USER_ACTIVITY,
-    USER_AVERAGE_SESSIONS,
-    USER_PERFORMANCE
-} = require('./data')
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} = require("./data");
 
 /**
  * @description Retrieve the main user info (first name, last name, today score)
- * @param {number} id 
+ * @param {number|string} id
  */
-const getUserById = id => USER_MAIN_DATA
-    .filter(user => user.id === id)
-    .shift()
-
+const getUserById = (id) => {
+  id = Number(id); // Assure-toi que l'ID est bien un nombre
+  return USER_MAIN_DATA.find((user) => user.id === id);
+};
 
 /**
- * @param {number} id 
+ * @param {number|string} id
  */
-const getUserActivityById = id => USER_ACTIVITY
-    .filter(userActivity => userActivity.userId === id)
-    .shift()
-
+const getUserActivityById = (id) => {
+  id = Number(id);
+  return USER_ACTIVITY.find((userActivity) => userActivity.userId === id);
+};
 
 /**
- * @param {number} id 
+ * @param {number|string} id
  */
-const getUserAverageSession = id => USER_AVERAGE_SESSIONS
-    .filter(userActivity => userActivity.userId === id)
-    .shift()
-
+const getUserAverageSession = (id) => {
+  id = Number(id);
+  return USER_AVERAGE_SESSIONS.find(
+    (userActivity) => userActivity.userId === id
+  );
+};
 
 /**
- * @param {number} id 
+ * @param {number|string} id
  */
-const getUserPerformance = id => USER_PERFORMANCE
-    .filter(userPerformance => userPerformance.userId === id)
-    .shift()
+const getUserPerformance = (id) => {
+  id = Number(id);
+  return USER_PERFORMANCE.find(
+    (userPerformance) => userPerformance.userId === id
+  );
+};
 
 module.exports = {
-    getUserById,
-    getUserActivityById,
-    getUserAverageSession,
-    getUserPerformance
-}
+  getUserById,
+  getUserActivityById,
+  getUserAverageSession,
+  getUserPerformance,
+};

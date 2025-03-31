@@ -9,11 +9,8 @@ const ErrorPage = () => {
       <h1>404</h1>
       <p>Oups! L'utilisateur que vous chercher n'existe pas.</p>
 
-      <Link
-        to="/12
-      "
-      >
-        Retourner sur la page d'accueil
+      <Link to="/12">
+  Retourner sur la page d'accueil
       </Link>
     </section>
   );

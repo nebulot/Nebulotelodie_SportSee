@@ -1,0 +1,60 @@
+/* ==============================
+   🎨 VARIABLES & CONFIGURATION
+   ============================== */
+
+/* 🎨 Couleurs */
+$primary-color: #ff0101;
+
+/* 🔠 Typographie */
+$font-size: (
+  desktop: 1rem,
+);
+
+/* 📏 Breakpoints */
+$breakpoints: (
+  desktop: 1440px,
+);
+
+/* ==============================
+   🛠️ MIXINS GÉNÉRAUX
+   ============================== */
+
+/* 🖥️ Mixin pour le breakpoint desktop */
+@mixin desktop-breakpoint {
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+/* 🎯 Mixin pour supprimer les marges */
+@mixin no-margin {
+  margin: 0;
+}
+
+/* 🎨 Mixin pour recolorer une image avec une opacité définie */
+@mixin recolor($color: #000, $opacity: 1) {
+  $r: calc(red($color) / 255);
+  $g: calc(green($color) / 255);
+  $b: calc(blue($color) / 255);
+  $a: $opacity;
+
+  $lightness: lightness($color);
+  $svg-filter-id: 'recolor';
+
+  /* Fallback en niveaux de gris */
+  filter: saturate(0%) brightness(0%) invert($lightness) opacity($opacity);
+
+  /* Filtre SVG */
+  filter: url('data:image/svg+xml;utf8,\
+    <svg xmlns="http://www.w3.org/2000/svg">\
+      <filter id="#{$svg-filter-id}" color-interpolation-filters="sRGB">\
+        <feColorMatrix type="matrix" values="\
+          0 0 0 0 #{$r}\
+          0 0 0 0 #{$g}\
+          0 0 0 0 #{$b}\
+          0 0 0 #{$a} 0\
+        "/>\
+      </filter>\
+    </svg>\
+    ##{$svg-filter-id}');
+}
