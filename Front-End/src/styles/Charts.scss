@@ -1,0 +1,15 @@
+.charts{
+    display: flex;
+    flex-direction: row;
+    max-width: 835px;
+    justify-content: space-between;
+    column-gap: 1rem;
+    margin-left: 117px;
+}
+
+
+@media (min-width:1024px) and (max-width:1240px){
+    /*.charts{
+        width: 600px;
+    }*/
+}

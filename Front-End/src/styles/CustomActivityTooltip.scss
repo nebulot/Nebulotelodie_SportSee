@@ -1,0 +1,12 @@
+.activityTooltip{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+    width: 55px;
+    background: #E60000;
+    &__value{
+        color: white;
+        font-size: 12px;
+    }
+}

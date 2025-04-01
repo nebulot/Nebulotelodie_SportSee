@@ -1,52 +1,46 @@
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from 'prop-types';
 
-import '../styles/CardStyle.scss'
+import icons from "../assets/icons";
+
+import '../styles/Card.scss';
 
 /**
- * Render a div (card) containing an image and text
- *
- * @category Components
- * @component
- * @returns { React.Component } A React component
+ * Creates a card
+ * @param { String } props 
+ * @returns { HTMLElement } returns a card
  */
-function Card({ userKeyData, unit, subtitle, className, logo }) {
-	return (
-		<div className="card ">
-			<div className={'card-icon-wrapper ' + className}>
-				<img src={logo} alt="" className="card-icon center" />
-			</div>
-			<div className="card-data-wrapper">
-				<p className="card-title">
-					{userKeyData.toLocaleString('en-US')}
-					{unit}
-				</p>
-				<p className="card-subtitle">{subtitle}</p>
-			</div>
-		</div>
-	)
+const Card = (props) => {
+    const type=props.type;
+    let icon,unit;
+    const value=props.value;
+    if(type==="Calories"){
+        icon=icons.calories
+        unit="kCal";
+    }else if(type==="Glucides"){
+        icon=icons.glucides;
+        unit="g";
+    }else if(type==="Lipides"){
+        icon=icons.lipides;
+        unit="g";
+    }else if(type==="Proteines"){
+        icon=icons.proteins;
+        unit="g";
+    }
+    return(
+        <div className="card">
+            <img src={icon} alt="icon" className="card__icon"/>
+            <div className="card__title_value">
+                <p className="card__value">{value}{unit}</p>
+                <p className="card__title">{type}</p>
+            </div>
+        </div>
+    )
 }
 
-Card.propTypes = {
-	/**
-	 * Data number to be displayed in the card
-	 */
-	userKeyData: PropTypes.number.isRequired,
-	/**
-	 * Unit of the data
-	 */
-	unit: PropTypes.string.isRequired,
-	/**
-	 * Subtitle of the card
-	 */
-	subtitle: PropTypes.string.isRequired,
-	/**
-	 * Class name of the card
-	 */
-	className: PropTypes.string,
-	/**
-	 * Logo path of the card
-	 */
-	logo: PropTypes.string.isRequired,
+Card.propTypes={
+    type:PropTypes.string,
+    value:PropTypes.number
 }
 
 export default Card

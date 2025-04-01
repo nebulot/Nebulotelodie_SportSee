@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
 import Home from './pages/Home';
-import Profil from './pages/Profil';
+import  Profil  from './pages/Profil';
+
+
 import Settings from './pages/Settings';
 import Community from './pages/Community';
 
@@ -25,7 +27,7 @@ function Router() {
 				<Sidebar />
 				<Routes>
 					<Route exact path="/" element={<Home />} />
-					<Route exact path="/profil/:userId" element={<Profil />} />
+					<Route exact path="/profil/:id" element={<Profil />} />
 					<Route exact path="/settings" element={<Settings />} />
 					<Route exact path="/community" element={<Community />} />
 				</Routes>
@@ -33,5 +35,6 @@ function Router() {
 		</React.StrictMode>
 	)
 }
+
 
 export default Router

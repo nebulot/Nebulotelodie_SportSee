@@ -1,0 +1,25 @@
+.welcome{
+    display: flex;
+    flex-direction: column;
+    top: 130px;
+    left: 200px;
+    h2{
+        margin: 0;
+        font-weight: 500;
+    }
+    &__hello_container{
+        font-size: 32px;
+        display: flex;
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+    &__hello{
+        color: black;
+    }
+    &__name{
+        color: red;
+    }
+    &__message{
+        font-size: 18px;
+    }
+}

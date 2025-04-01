@@ -1,0 +1,92 @@
+.chart{
+    width: 258px;
+    height: 263px;
+    border-radius: 5px;
+}
+
+.average_sessions{
+    background-color: #FF0000;
+}
+
+.performance{
+    background-color: #282D30;
+    display: flex;
+}
+
+.score{
+    background-color: #FBFBFB;
+}
+
+.radar{
+    margin: auto;
+}
+
+.average_sessions_text{
+    margin: 18px;
+    position: absolute;
+    color: white;
+    opacity: 0.5;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+.score{
+    &__title{
+        margin: 1.2rem;
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+    }
+    
+    &__value{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 258px;
+        margin-top: 6rem;
+        align-items: center;
+    }
+    
+    &__value_percent{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        color: black;
+        margin: 0;
+    }
+    
+    &__infos{
+        color: #282D30;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        width: 100px;
+        text-align: center;
+    }
+}
+
+@media (min-width:1024px) and (max-width:1240px){
+    .chart{
+        width: 200px;
+        height: 200px;
+    }
+    .average_sessions_text{
+        margin: 6px;
+        font-size: 14px;
+        width: 178px;
+    }
+    .score{
+        &__title{
+            margin: 1rem;
+        }
+        &__value{
+            margin-top: 3.7rem;
+            width: 200px;
+        }
+    }
+}

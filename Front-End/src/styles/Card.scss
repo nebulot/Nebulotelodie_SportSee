@@ -1,0 +1,45 @@
+.card{
+    //width: 258px;
+    height: 124px;
+    border-radius: 5px;
+    background-color: #FBFBFB;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 18px;
+    &__icon{
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+        margin-left: 2rem;
+    }
+    &__title_value{
+        display: flex;
+        flex-direction: column;
+        margin-left: 2rem;
+    }
+    &__value{
+        font-size: 20px;
+        color: #282D30;
+        margin-top: 12px;
+        margin-bottom: 0;
+    }
+    &__title{
+        font-size: 14px;
+        color: #74798C;
+        margin-top: 5px;
+    }
+}
+
+@media (min-width:1024px) and (max-width:1240px){
+    .card{
+        min-width: 200px;
+        max-width: 258px;
+        &__value{
+            font-size: 16px;
+        }
+        &__title_value{
+            margin-left: 1rem;
+        }
+    }
+}
