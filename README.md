@@ -32,39 +32,39 @@ Choississez avec le toggle (bouton), soit l'utilisateur 12 / ou l'utilisateur 18
 
 ### Installation et lancement du _Back-End_
 
-1️⃣ Clonez le repositorie _SportSee_ :
-`git clone https://github.com/nebulot/Nebulotelodie_SportSee`
-2️⃣ Allez dans votre terminal, puis ouvrer :
-cd Back-End
-3️⃣ En se plaçant dans ce repo du _Back-End_, installer ses dépendances :
-'npm install'
-4️⃣ Lancer le _Back-End_ sur le port 3000 (port par défaut)
-puis => 'npm run start'
+1️⃣ Clonez le repositorie _SportSee_ :</br>
+`git clone https://github.com/nebulot/Nebulotelodie_SportSee`</br>
+2️⃣ Allez dans votre terminal, puis ouvrer :</br>
+cd Back-End</br>
+3️⃣ En se plaçant dans ce repo du _Back-End_, installer ses dépendances :</br>
+'npm install'</br>
+4️⃣ Lancer le _Back-End_ sur le port 3000 (port par défaut)</br>
+puis => 'npm run start'</br>
 
 ### Installation et lancement du _Front-End_
 
-1️⃣ Clonez le repositorie _SportSee_ :
-`git clone https://github.com/nebulot/Nebulotelodie_SportSee`
-2️⃣ Allez dans votre terminal, puis ouvrer :
-cd Front-End
-3️⃣ En se plaçant dans ce repo du _Front-End_, installer ses dépendances : 'npm install'
-4️⃣ Lancer le _Front-End_ sur le port 3001 (port par défaut 3000 utiliser par votre Back-End votre terminal va donc vous demandez de prendre le port suivant (Y/O) => selectionner Y)
-puis => 'npm start'
+1️⃣ Clonez le repositorie _SportSee_ :</br>
+`git clone https://github.com/nebulot/Nebulotelodie_SportSee`</br>
+2️⃣ Allez dans votre terminal, puis ouvrer :</br>
+cd Front-End</br>
+3️⃣ En se plaçant dans ce repo du _Front-End_, installer ses dépendances : </br>'npm install'</br>
+4️⃣ Lancer le _Front-End_ sur le port 3001 (port par défaut 3000 utiliser par votre Back-End votre terminal va donc vous demandez de prendre le port suivant (Y/O) => selectionner Y)</br>
+puis => 'npm start'</br>
 
 Le _front-end_ est alors consultable à l'URL `http://localhost:3001`.
 
 ## 💻 Developper avec : </br>
 
-Visual Studio Code - Éditeur de texte
-Sass - Préprocesseur CSS
-React 18 - Bibliothèque JavaScript gratuite et open-source développée par Facebook
-Create React App - Outil créé par Facebook, qui est la référence pour initier un projet React
-React Router V6 - Bibliothèque de routage pour React
-Recharts - Bibliothèque de graphiques pour React
-Prop-types - Package utilisé pour documenter les types de propriétés attendus dans les composants React
-JSDoc - Générateur de documentation pour JavaScript
-GitHub - Outil de gestion de version
-GitHub Pages - Outil d’hébergement
+Visual Studio Code - Éditeur de texte</br>
+Sass - Préprocesseur CSS</br>
+React 18 - Bibliothèque JavaScript gratuite et open-source développée par Facebook</br>
+Create React App - Outil créé par Facebook, qui est la référence pour initier un projet React</br>
+React Router V6 - Bibliothèque de routage pour React</br>
+Recharts - Bibliothèque de graphiques pour React</br>
+Prop-types - Package utilisé pour documenter les types de propriétés attendus dans les composants React</br>
+JSDoc - Générateur de documentation pour JavaScript</br>
+GitHub - Outil de gestion de version</br>
+GitHub Pages - Outil d’hébergement</br>
 
 \*\*🔗 Liens : </br>
 
@@ -107,38 +107,38 @@ Use the toggle button to switch between user 12 and user 18, then click on Profi
 
 Installing and running the Back-End
 
-1️⃣ Clone the SportSee repository:
-git clone https://github.com/nebulot/Nebulotelodie_SportSee
-2️⃣ Open your terminal, then navigate to:
-cd Back-End
-3️⃣ Inside the Back-End repository, install dependencies:
-npm install
-4️⃣ Start the Back-End on port 3000 (default port):
-npm run start
-Installing and running the Front-End
+1️⃣ Clone the SportSee repository:</br>
+git clone https://github.com/nebulot/Nebulotelodie_SportSee </br>
+2️⃣ Open your terminal, then navigate to:</br>
+cd Back-End </br>
+3️⃣ Inside the Back-End repository, install dependencies: </br>
+npm install </br>
+4️⃣ Start the Back-End on port 3000 (default port): </br>
+npm run start </br>
+Installing and running the Front-End </br>
 
-1️⃣ Clone the SportSee repository:
-git clone https://github.com/nebulot/Nebulotelodie_SportSee
-2️⃣ Open your terminal, then navigate to:
-cd Front-End
-3️⃣ Inside the Front-End repository, install dependencies:
-npm install
-4️⃣ Start the Front-End on port 3001 (default port 3000 is used by the Back-End; your terminal will prompt you to switch to the next available port (Y/O) → select Y):
-npm start
+1️⃣ Clone the SportSee repository: </br>
+git clone https://github.com/nebulot/Nebulotelodie_SportSee </br>
+2️⃣ Open your terminal, then navigate to: </br>
+cd Front-End </br>
+3️⃣ Inside the Front-End repository, install dependencies: </br>
+npm install </br>
+4️⃣ Start the Front-End on port 3001 (default port 3000 is used by the Back-End; your terminal will prompt you to switch to the next available port (Y/O) → select Y):</br>
+npm start</br>
 
 The Front-End is now accessible at http://localhost:3001.
 💻 Developed with: </br>
 
-Visual Studio Code - Text editor
-Sass - CSS preprocessor
-React 18 - Free and open-source JavaScript library developed by Facebook
-Create React App - Toolkit created by Facebook, which is the reference for initiating a React project
-React Router V6 - Routing library for React
-Recharts - A charting library for React
-Prop-types - A package used to document the intended types of properties passed to React components
-JSDoc - Documentation generator for JavaScript
-GitHub - Version control tool
-GitHub Pages - Hosting tool
+Visual Studio Code - Text editor </br>
+Sass - CSS preprocessor </br>
+React 18 - Free and open-source JavaScript library developed by Facebook</br>
+Create React App - Toolkit created by Facebook, which is the reference for initiating a React project </br>
+React Router V6 - Routing library for React</br>
+Recharts - A charting library for React</br>
+Prop-types - A package used to document the intended types of properties passed to React components </br>
+JSDoc - Documentation generator for JavaScript </br>
+GitHub - Version control tool </br>
+GitHub Pages - Hosting tool </br>
 \*\*🔗 Liens : </br>
 
 => W3C validator
